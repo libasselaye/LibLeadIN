@@ -176,8 +176,10 @@ export default function SearchPage() {
               phase = 'processing';
             }
 
-            // Done: stable for 5 polls (15s) with leads, or reached max
-            if ((newStable >= 5 && newCount > 0) || newCount >= prev.maxLeads) {
+            // Done: reached max, OR stable for 20 polls (60s) with leads
+            // The workflow processes leads one by one (email scraping, LinkedIn, etc.)
+            // so we need a generous stability window
+            if (newCount >= prev.maxLeads || (newStable >= 20 && newCount > 0)) {
               phase = 'complete';
               stopPolling();
             }

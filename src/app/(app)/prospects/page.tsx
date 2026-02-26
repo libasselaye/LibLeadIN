@@ -22,7 +22,9 @@ export default function ProspectsPage() {
   const [sectorFilter, setSectorFilter] = useState('');
 
   const sectors = useMemo(() => {
-    const set = new Set(leads.map((l) => l.businessSector || l.category).filter(Boolean));
+    const set = new Set(
+      leads.map((l) => (l.businessSector || '').trim()).filter(Boolean)
+    );
     return Array.from(set).sort();
   }, [leads]);
 
@@ -48,7 +50,7 @@ export default function ProspectsPage() {
 
     if (sectorFilter) {
       result = result.filter(
-        (l) => l.businessSector === sectorFilter || l.category === sectorFilter
+        (l) => (l.businessSector || '').trim() === sectorFilter
       );
     }
 
