@@ -27,7 +27,7 @@ export default function DashboardPage() {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-3xl font-bold">Tableau de bord</h1>
+        <h1 className="text-2xl sm:text-3xl font-bold">Tableau de bord</h1>
         <p className="text-white/40 mt-1">Vue d&apos;ensemble de votre prospection</p>
       </div>
 

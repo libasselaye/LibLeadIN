@@ -296,7 +296,7 @@ export default function SearchPage() {
             </div>
 
             {/* Stat pills */}
-            <div className="grid grid-cols-4 gap-2">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
               <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/[0.03]">
                 <Users className="w-4 h-4 text-blue-400 shrink-0" />
                 <div>
@@ -409,7 +409,7 @@ export default function SearchPage() {
             required
           />
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <Input
               label="Ville"
               placeholder="ex: Paris"
@@ -447,7 +447,7 @@ export default function SearchPage() {
             onChange={(e) => update('maxLeads', parseInt(e.target.value) || 1)}
           />
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <Select
               label="Langue de l'email"
               icon={<Languages className="w-4 h-4" />}

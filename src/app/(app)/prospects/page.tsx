@@ -70,20 +70,20 @@ export default function ProspectsPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h1 className="text-3xl font-bold">Prospects</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold">Prospects</h1>
           <p className="text-white/40 mt-1">{leads.length} prospects au total</p>
         </div>
         <div className="flex gap-2">
-          <Badge variant="success">{leads.filter((l) => l.status.startsWith('SENT')).length} envoyes</Badge>
+          <Badge variant="success">{leads.filter((l) => l.status.startsWith('SENT')).length} envoyés</Badge>
           <Badge variant="warning">{leads.filter((l) => l.status === 'PENDING').length} en attente</Badge>
         </div>
       </div>
 
       {/* Filters */}
       <GlassCard padding="md">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
           <Input
             placeholder="Rechercher un prospect..."
             icon={<Search className="w-4 h-4" />}
