@@ -14,12 +14,14 @@ export async function POST(req: NextRequest) {
 
     const businessSector = String(data.businessSector).slice(0, 100);
     const city = String(data.city).slice(0, 100);
+    const address = String(data.address || '').slice(0, 200);
     const country = String(data.country).slice(0, 100);
-    const maxLeads = Math.min(Math.max(1, Number(data.maxLeads) || 20), 100);
+    const maxLeads = Math.min(Math.max(1, Number(data.maxLeads) || 20), 50);
 
     const result = await triggerSearch({
       businessSector,
       city,
+      address,
       country,
       maxLeads,
       emailLanguage: String(data.emailLanguage || 'French').slice(0, 30),

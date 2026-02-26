@@ -1,6 +1,7 @@
 export interface SearchFormData {
   businessSector: string;
   city: string;
+  address: string;
   country: string;
   maxLeads: number;
   emailLanguage: string;

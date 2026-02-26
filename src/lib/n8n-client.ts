@@ -20,6 +20,7 @@ export async function triggerSearch(data: SearchFormData): Promise<{ success: bo
       body: JSON.stringify({
         'Business Sector': data.businessSector,
         'City': data.city,
+        'Address': data.address || '',
         'Country': data.country,
         'Max Leads': data.maxLeads,
         'Email Language': data.emailLanguage,
