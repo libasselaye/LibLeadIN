@@ -20,10 +20,28 @@ export default function ProspectsPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [statusFilter, setStatusFilter] = useState('');
   const [sectorFilter, setSectorFilter] = useState('');
+  const [cityFilter, setCityFilter] = useState('');
+
+  const extractCity = (address: string): string => {
+    if (!address) return '';
+    const parts = address.split(',').map((p) => p.trim());
+    if (parts.length >= 2) {
+      const cityPart = parts[parts.length - 2] || parts[parts.length - 1];
+      return cityPart.replace(/^\d{4,5}\s*/, '').trim();
+    }
+    return address.trim();
+  };
 
   const sectors = useMemo(() => {
     const set = new Set(
       leads.map((l) => (l.businessSector || '').trim()).filter(Boolean)
+    );
+    return Array.from(set).sort();
+  }, [leads]);
+
+  const cities = useMemo(() => {
+    const set = new Set(
+      leads.map((l) => extractCity(l.address)).filter(Boolean)
     );
     return Array.from(set).sort();
   }, [leads]);
@@ -54,8 +72,14 @@ export default function ProspectsPage() {
       );
     }
 
+    if (cityFilter) {
+      result = result.filter(
+        (l) => extractCity(l.address) === cityFilter
+      );
+    }
+
     return result;
-  }, [leads, searchQuery, statusFilter, sectorFilter]);
+  }, [leads, searchQuery, statusFilter, sectorFilter, cityFilter]);
 
   if (isLoading) {
     return (
@@ -83,7 +107,7 @@ export default function ProspectsPage() {
 
       {/* Filters */}
       <GlassCard padding="md">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
           <Input
             placeholder="Rechercher un prospect..."
             icon={<Search className="w-4 h-4" />}
@@ -105,6 +129,12 @@ export default function ProspectsPage() {
             value={sectorFilter}
             onChange={(e) => setSectorFilter(e.target.value)}
             options={sectors.map((s) => ({ value: s, label: s }))}
+          />
+          <Select
+            placeholder="Toutes les villes"
+            value={cityFilter}
+            onChange={(e) => setCityFilter(e.target.value)}
+            options={cities.map((c) => ({ value: c, label: c }))}
           />
         </div>
       </GlassCard>

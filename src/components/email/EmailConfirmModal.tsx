@@ -148,8 +148,8 @@ export default function EmailConfirmModal({ lead, open, onClose, onSuccess }: Pr
                   value={body}
                   onChange={(e) => setBody(e.target.value)}
                   disabled={sending}
-                  rows={10}
-                  className="w-full px-4 py-3 rounded-xl bg-white/[0.05] border border-white/[0.08] text-white placeholder-white/30 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/20 transition-colors text-sm leading-relaxed resize-none"
+                  rows={12}
+                  className="w-full px-4 py-3 rounded-xl bg-white/[0.05] border border-white/[0.08] text-white placeholder-white/30 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/20 transition-colors text-sm leading-relaxed resize-y min-h-[200px]"
                 />
               </div>
             </div>
