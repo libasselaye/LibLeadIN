@@ -58,7 +58,7 @@ export function buildHtmlEmail(body: string): string {
                 <tr>
                   <td style="padding-top: 24px;">
                     <p style="margin: 0 0 2px 0; font-size: 15px; font-weight: 600; color: #1a1a2e;">Libasse Mboup</p>
-                    <p style="margin: 0 0 8px 0; font-size: 13px; color: #6b7280;">Data Scientist / AI Engineer</p>
+                    <p style="margin: 0 0 8px 0; font-size: 13px; color: #6b7280;">Ingénieur en Intelligence Artificielle &amp; Automatisation</p>
                     <p style="margin: 0 0 2px 0; font-size: 12px; color: #9ca3af;">&#x1F4CD; Region PACA</p>
                     <p style="margin: 0 0 2px 0; font-size: 12px; color: #9ca3af;">&#x1F4DE; 0651983614</p>
                     <p style="margin: 0; font-size: 12px; color: #9ca3af;">&#x1F310; <a href="https://libasse.tech" style="color: #2563eb; text-decoration: none;">libasse.tech</a></p>
@@ -68,13 +68,9 @@ export function buildHtmlEmail(body: string): string {
             </td>
           </tr>
 
-          <!-- Footer -->
+          <!-- Bottom rounded corner -->
           <tr>
-            <td style="background-color: #f9fafb; padding: 20px 44px; border: 1px solid #e5e7eb; border-top: none; border-radius: 0 0 12px 12px;">
-              <p style="margin: 0; font-size: 11px; color: #9ca3af; text-align: center;">
-                Cet email vous a ete envoye via LibLeadIN
-              </p>
-            </td>
+            <td style="background-color: #ffffff; height: 12px; border-left: 1px solid #e5e7eb; border-right: 1px solid #e5e7eb; border-bottom: 1px solid #e5e7eb; border-radius: 0 0 12px 12px;"></td>
           </tr>
 
         </table>
